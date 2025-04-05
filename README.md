@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Driver Assist (EDA) - FYP-063-D-EDA</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6a1b9a;
+            --secondary: #7952aa;
+            --accent: #9c27b0;
+            --light: #f3e5f5;
+            --dark: #4a148c;
+            --success: #2ecc71;
+            --warning: #f39c12;
+            --danger: #e74c3c;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f0fa;
+        }
+        
+        header {
+            background-color: var(--dark);
+            color: white;
+            padding: 1rem 0;
+            position: relative;
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .logo {
+            max-width: 150px;
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--light);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .section {
+            margin-bottom: 4rem;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--light);
+        }
+        
+        p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .team-members {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .team-member {
+            text-align: center;
+            margin-bottom: 2rem;
+            flex: 1;
+            min-width: 300px;
+            padding: 1rem;
+        }
+        
+        .member-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 3px solid var(--accent);
+            box-shadow: 0 0 15px rgba(156, 39, 176, 0.3);
+        }
+        
+        .modules {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 2rem;
+        }
+        
+        .module {
+            flex: 1 1 300px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        
+        .module:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        
+        .module-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+            background: rgba(156, 39, 176, 0.1);
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        
+        .module h3 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 2rem;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 250px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 1rem;
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+        
+        .video-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 20px;
+            margin-top: 2rem;
+        }
+        
+        .video-item {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .video-item iframe, .video-item video {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .video-caption {
+            padding: 1rem;
+            background-color: white;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 1.5rem;
+        }
+        
+        .tech-item {
+            background-color: #e1bee7;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #4a148c;
+            box-shadow: 0 2px 4px rgba(106, 27, 154, 0.2);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background: linear-gradient(to bottom, #6a1b9a, #9c27b0);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -12.5px;
+            background-color: white;
+            border: 4px solid var(--primary);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .timeline-left {
+            left: 0;
+        }
+        
+        .timeline-right {
+            left: 50%;
+        }
+        
+        .timeline-right::after {
+            left: -12.5px;
+        }
+        
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-date {
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 1rem 0;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: #ba68c8;
+        }
+        
+        .contact-info {
+            margin: 1rem 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+        
+        .btn:hover {
+            background-color: #8e24aa;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 18px;
+            }
+            
+            .timeline-left::after, .timeline-right::after {
+                left: 18px;
+            }
+            
+            .timeline-right {
+                left: 0%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="/api/placeholder/150/150" alt="EDA Logo" class="logo">
+            <h1>Enhanced Driver Assist (EDA)</h1>
+            <p class="subtitle">FYP-063-D-EDA | National University of Computer and Emerging Sciences</p>
+            <p class="subtitle">Making Roads Safer with AI-Powered Driver Assistance</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <section class="section" id="about">
+            <h2>About the Project</h2>
+            <p>The Enhanced Driver Assist (EDA) system is an AI device that improves road safety by combining various advanced driver assistance features. Our system addresses key challenges such as driver fatigue, distraction, lane discipline, and risky driving behaviors by integrating AI, IoT, and edge-computing technologies.</p>
+            
+            <p>Fatigue and distraction-related road accidents account for a significant percentage of road traffic collisions worldwide. On motorways, fatigue-related RTCs are responsible for 54% of fatal accidents, while on national highways, they cause 41% of serious injuries. In Pakistan, drowsy driving was a contributing factor in 33% of accidents on the M2 motorway.</p>
+            
+            <p>EDA monitors driver attention, detects lane departures, and analyzes driving patterns to provide timely alerts and interventions, thereby reducing the risk of accidents. It incorporates hardware like Raspberry Pi and Coral TPU for processing, and OBD-II sensors for vehicle data collection.</p>
+            
+            <div class="tech-stack">
+                <div class="tech-item"><i class="fas fa-microchip"></i> Raspberry Pi</div>
+                <div class="tech-item"><i class="fas fa-microchip"></i> Coral TPU</div>
+                <div class="tech-item"><i class="fas fa-car"></i> OBD-II</div>
+                <div class="tech-item"><i class="fas fa-video"></i> Dashcams</div>
+                <div class="tech-item"><i class="fab fa-python"></i> Python</div>
+                <div class="tech-item"><i class="fas fa-code"></i> OpenCV</div>
+                <div class="tech-item"><i class="fas fa-brain"></i> TensorFlow Lite</div>
+                <div class="tech-item"><i class="fas fa-code"></i> MediaPipe</div>
+                <div class="tech-item"><i class="fas fa-network-wired"></i> Edge Computing</div>
+            </div>
+        </section>
+        
+        <section class="section" id="team">
+            <h2>Our Team</h2>
+            <div class="team-members">
+                <div class="team-member">
+                    <img src="/api/placeholder/150/150" alt="Manahil Kamran" class="member-img">
+                    <h3>Manahil Kamran</h3>
+                    <p>21I-2668</p>
+                    <p><strong>Responsibilities:</strong> Driver Attention Assist, Lane Departure Warning, Driving Pattern Monitoring</p>
+                </div>
+                <div class="team-member">
+                    <img src="/api/placeholder/150/150" alt="Ali Arfa" class="member-img">
+                    <h3>Ali Arfa</h3>
+                    <p>21I-2669</p>
+                    <p><strong>Responsibilities:</strong> Hardware Implementation, Voice Assistant, OBD-II Integration</p>
+                </div>
+            </div>
+            <div class="team-members">
+                <div class="team-member">
+                    <h3>Dr. Faisal Cheema</h3>
+                    <p>Project Supervisor</p>
+                </div>
+                <div class="team-member">
+                    <h3>Ms. Hira Mastoor</h3>
+                    <p>Project Co-Supervisor</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section" id="modules">
+            <h2>System Modules</h2>
+            <div class="modules">
+                <div class="module">
+                    <div class="module-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Driver Attention Monitoring</h3>
+                    <p>Monitors the driver's facial expressions and movements to detect signs of fatigue, drowsiness, or distraction. The system provides alerts when inattention is detected, helping to prevent accidents caused by driver fatigue.</p>
+                    <ul>
+                        <li>Facial feature tracking using computer vision</li>
+                        <li>Drowsiness detection through eye movements</li>
+                        <li>Head movement tracking to monitor driver attention</li>
+                    </ul>
+                </div>
+                
+                <div class="module">
+                    <div class="module-icon">
+                        <i class="fas fa-road"></i>
+                    </div>
+                    <h3>Lane Detection and Departure Warning</h3>
+                    <p>Ensures that the vehicle remains within lane boundaries. It uses road-facing cameras to track the vehicle's position in the lane and warns the driver if the vehicle deviates from its path.</p>
+                    <ul>
+                        <li>Lane detection using camera input</li>
+                        <li>Vehicle position tracking within lane boundaries</li>
+                        <li>Alert system for lane departure warnings</li>
+                    </ul>
+                </div>
+                
+                <div class="module">
+                    <div class="module-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Driving Pattern Monitoring</h3>
+                    <p>Tracks driver behavior using OBD-II sensor data to monitor risky driving practices like harsh braking, speeding, and rapid acceleration. The system provides feedback to promote safer driving habits.</p>
+                    <ul>
+                        <li>Collection of driving data from OBD-II sensors</li>
+                        <li>Analysis of driving patterns (e.g., braking, speeding)</li>
+                        <li>Alerts for unsafe driving practices</li>
+                    </ul>
+                </div>
+                
+                <div class="module">
+                    <div class="module-icon">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                    <h3>Voice Assistant</h3>
+                    <p>Enables hands-free interaction with the system. The voice assistant can control various system functions and respond to queries, helping the driver stay focused on the road.</p>
+                    <ul>
+                        <li>Voice-controlled system interface</li>
+                        <li>Conversational AI for normal interactions</li>
+                        <li>Real-time processing on edge devices for quick response</li>
+                    </ul>
+                </div>
+                
+                <div class="module">
+                    <div class="module-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Hardware Implementation and Integration</h3>
+                    <p>Focuses on the integration of hardware components such as dashcams, Raspberry Pi, Coral TPU, and OBD-II sensors. It ensures the synchronization of hardware and software for optimal performance.</p>
+                    <ul>
+                        <li>Setup of road-facing and driver-facing dashcams</li>
+                        <li>Integration of OBD-II sensor for vehicle data collection</li>
+                        <li>Synchronization between hardware and software components</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section" id="gallery">
+            <h2>360° Device Gallery</h2>
+            <p>Explore our EDA device from every angle with these 360° view photographs:</p>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/300" alt="EDA Device Front View" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h4>Front View</h4>
+                        <p>The front-facing camera system for road monitoring</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/300" alt="EDA Device Side View" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h4>Side View</h4>
+                        <p>Compact design for easy installation</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/300" alt="EDA Device Back View" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h4>Back View</h4>
+                        <p>The driver-facing camera system</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/300" alt="EDA Device Internal View" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h4>Internal Components</h4>
+                        <p>Raspberry Pi and Coral TPU hardware</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/300" alt="EDA Device Dashboard Installation" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h4>Dashboard Installation</h4>
+                        <p>The EDA system installed in a vehicle</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/300" alt="EDA Device OBD-II Connection" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h4>OBD-II Connection</h4>
+                        <p>Vehicle data integration through OBD-II</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section" id="demos">
+            <h2>Module Demonstrations</h2>
+            <p>Watch our system in action with these demonstration videos of each module:</p>
+            <div class="video-container">
+                <div class="video-item">
+                    <video controls>
+                        <source src="videos/driver-attention-demo.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-caption">
+                        <h4>Driver Attention Monitoring Demo</h4>
+                        <p>Real-time detection of driver drowsiness and distraction</p>
+                    </div>
+                </div>
+                <div class="video-item">
+                    <video controls>
+                        <source src="videos/lane-detection-demo.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-caption">
+                        <h4>Lane Detection and Departure Warning Demo</h4>
+                        <p>Real-time lane tracking and alert system</p>
+                    </div>
+                </div>
+                <div class="video-item">
+                    <video controls>
+                        <source src="videos/driving-pattern-demo.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-caption">
+                        <h4>Driving Pattern Monitoring Demo</h4>
+                        <p>Analysis of driving behavior using OBD-II data</p>
+                    </div>
+                </div>
+                <div class="video-item">
+                    <video controls>
+                        <source src="videos/voice-assistant-demo.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-caption">
+                        <h4>Voice Assistant Demo</h4>
+                        <p>Hands-free interaction with the EDA system</p>
+                    </div>
+                </div>
+                <div class="video-item">
+                    <video controls>
+                        <source src="videos/full-system-demo.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-caption">
+                        <h4>Complete System Demo</h4>
+                        <p>The entire EDA system working together in a real driving scenario</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section" id="timeline">
+            <h2>Project Timeline</h2>
+            <div class="timeline">
+                <div class="timeline-item timeline-left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">September - October 2024</div>
+                        <h3>Iteration 1</h3>
+                        <p>Data Collection and Pre-processing, Hardware setup</p>
+                    </div>
+                </div>
+                <div class="timeline-item timeline-right">
+                    <div class="timeline-content">
+                        <div class="timeline-date">November - December 2024</div>
+                        <h3>Iteration 2</h3>
+                        <p>Driver Attention Monitoring and Driving Pattern Analysis, Integration, and Testing</p>
+                    </div>
+                </div>
+                <div class="timeline-item timeline-left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">January - February 2025</div>
+                        <h3>Iteration 3</h3>
+                        <p>Lane Detection and Departure Warning, Voice Assistant, Integration, and Testing</p>
+                    </div>
+                </div>
+                <div class="timeline-item timeline-right">
+                    <div class="timeline-content">
+                        <div class="timeline-date">March - April 2025</div>
+                        <h3>Iteration 4</h3>
+                        <p>Optimization, Deployment, Combined Testing</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section" id="conclusion">
+            <h2>Project Impact</h2>
+            <p>The Enhanced Driver Assist (EDA) system addresses critical road safety challenges with an integrated approach to driver assistance. Our project aims to make a significant impact in several areas:</p>
+            
+            <ul>
+                <li><strong>Reduction in Fatigue-Related Accidents:</strong> By monitoring driver attention and alertness, EDA can help reduce the 54% of fatal accidents on motorways that are attributed to driver fatigue.</li>
+                <li><strong>Improved Lane Discipline:</strong> The lane detection and departure warning system helps drivers maintain proper lane position, especially during highway driving.</li>
+                <li><strong>Promotion of Safer Driving Habits:</strong> By analyzing driving patterns and providing feedback, EDA encourages drivers to develop safer driving behaviors.</li>
+                <li><strong>Reduced Driver Distraction:</strong> The voice assistant allows drivers to control various functions hands-free, reducing the need for manual interaction with devices while driving.</li>
+                <li><strong>Affordable Safety Solution:</strong> EDA provides an accessible aftermarket solution that can be installed in existing vehicles, bringing advanced safety features to a wider range of drivers.</li>
+            </ul>
+            
+            <p>Our project demonstrates how combining AI, edge computing, and IoT technologies can create practical solutions for real-world safety challenges, particularly in developing countries like Pakistan where such systems are urgently needed.</p>
+            
+            <a href="#" class="btn">Download Project Report</a>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <h3>Enhanced Driver Assist (EDA)</h3>
+            <p>Final Year Project (FYP-063-D-EDA)</p>
+            <p>Department of Data Science</p>
+            <p>National University of Computer and Emerging Sciences, Islamabad, Pakistan</p>
+            
+            <div class="social-links">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+            
+            <div class="contact-info">
+                <p>Email: <a href="mailto:project.eda@example.com">project.eda@example.com</a></p>
+            </div>
+            
+            <p>© 2025 EDA Project Team. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Add scroll behavior for navbar links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
