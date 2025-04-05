@@ -12,7 +12,7 @@
             --secondary: #7952aa;
             --accent: #9c27b0;
             --light: #f3e5f5;
-            --dark: #4a148c;
+            --dark: #210049;
             --success: #2ecc71;
             --warning: #f39c12;
             --danger: #e74c3c;
@@ -43,6 +43,15 @@
             margin: 0 auto;
             padding: 2rem;
             text-align: center;
+            position: relative;
+        }
+        
+        .kdd-logo {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            max-width: 200px;
+            height: auto;
         }
         
         .logo {
@@ -111,6 +120,25 @@
             margin-bottom: 1rem;
             border: 3px solid var(--accent);
             box-shadow: 0 0 15px rgba(156, 39, 176, 0.3);
+        }
+        
+        .lab-info {
+            background-color: #f9f9f9;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .lab-logo {
+            max-width: 150px;
+            height: auto;
+        }
+        
+        .lab-details {
+            flex: 1;
         }
         
         .modules {
@@ -369,12 +397,24 @@
             .timeline-right {
                 left: 0%;
             }
+            
+            .kdd-logo {
+                position: static;
+                margin: 0 auto 1rem;
+                display: block;
+            }
+            
+            .lab-info {
+                flex-direction: column;
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <div class="header-content">
+            <img src="images/kdd.png" alt="KDD Lab Logo" class="kdd-logo">
             <img src="images/logo.png" alt="EDA Logo" class="logo">
             <h1>Enhanced Driver Assist (EDA)</h1>
             <p class="subtitle">FYP-063-D-EDA | National University of Computer and Emerging Sciences</p>
@@ -430,8 +470,18 @@
                     <p>Project Co-Supervisor</p>
                 </div>
             </div>
+            
+            <div class="lab-info">
+                <img src="images/kdd.png" alt="KDD Lab Logo" class="lab-logo">
+                <div class="lab-details">
+                    <h3>Knowledge Discovery and Data Science (KDD) Lab</h3>
+                    <p>This project was developed at the KDD Lab, National University of Computer and Emerging Sciences (FAST-NUCES), Islamabad. The KDD Lab is a research facility focused on data science, machine learning, and artificial intelligence applications.</p>
+                    <p>The lab provides resources and mentorship for innovative projects like EDA, supporting students in developing cutting-edge solutions to real-world problems.</p>
+                </div>
+            </div>
         </section>
         
+        <!-- Rest of your HTML content remains the same -->
         <section class="section" id="modules">
             <h2>System Modules</h2>
             <div class="modules">
