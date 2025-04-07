@@ -868,4 +868,140 @@
                 </div>
                 <div class="timeline-item timeline-right">
                     <div class="timeline-content">
-                        <div class="timeline-date">November - December 2024
+                        <div class="timeline-date">November - December 2024</div>
+                        <h3>Iteration 2</h3>
+                        <p>Driver Attention Monitoring and Driving Pattern Analysis, Integration, and Testing</p>
+                    </div>
+                </div>
+                <div class="timeline-item timeline-left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">January - February 2025</div>
+                        <h3>Iteration 3</h3>
+                        <p>Lane Detection and Departure Warning, Voice Assistant, Integration, and Testing</p>
+                    </div>
+                </div>
+                <div class="timeline-item timeline-right">
+                    <div class="timeline-content">
+                        <div class="timeline-date">March - April 2025</div>
+                        <h3>Iteration 4</h3>
+                        <p>Optimization, Deployment, Combined Testing</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section" id="conclusion">
+            <h2>Project Impact</h2>
+            <p>The Enhanced Driver Assist (EDA) system addresses critical road safety challenges with an integrated approach to driver assistance. Our project aims to make a significant impact in several areas:</p>
+            
+            <ul>
+                <li><strong>Reduction in Fatigue-Related Accidents:</strong> By monitoring driver attention and alertness, EDA can help reduce the 54% of fatal accidents on motorways that are attributed to driver fatigue.</li>
+                <li><strong>Improved Lane Discipline:</strong> The lane detection and departure warning system helps drivers maintain proper lane position, especially during highway driving.</li>
+                <li><strong>Promotion of Safer Driving Habits:</strong> By analyzing driving patterns and providing feedback, EDA encourages drivers to develop safer driving behaviors.</li>
+                <li><strong>Reduced Driver Distraction:</strong> The voice assistant allows drivers to control various functions hands-free, reducing the need for manual interaction with devices while driving.</li>
+                <li><strong>Affordable Safety Solution:</strong> EDA provides an accessible aftermarket solution that can be installed in existing vehicles, bringing advanced safety features to a wider range of drivers.</li>
+            </ul>
+            
+            <p>Our project demonstrates how combining AI, edge computing, and IoT technologies can create practical solutions for real-world safety challenges, particularly in developing countries like Pakistan where such systems are urgently needed.</p>
+            
+            <a href="#" class="btn">Download Project Report</a>
+        </section>
+    </div>
+    
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav">
+        <div class="mobile-nav-links">
+            <a href="#about" class="mobile-nav-link">
+                <i class="fas fa-info-circle"></i>
+                About
+            </a>
+            <a href="#team" class="mobile-nav-link">
+                <i class="fas fa-users"></i>
+                Team
+            </a>
+            <a href="#modules" class="mobile-nav-link">
+                <i class="fas fa-cubes"></i>
+                Modules
+            </a>
+            <a href="#gallery" class="mobile-nav-link">
+                <i class="fas fa-images"></i>
+                Gallery
+            </a>
+            <a href="#demos" class="mobile-nav-link">
+                <i class="fas fa-video"></i>
+                Demos
+            </a>
+        </div>
+    </nav>
+    
+    <footer>
+        <div class="container">
+            <h3>Enhanced Driver Assist (EDA)</h3>
+            <p>Final Year Project (FYP-063-D-EDA)</p>
+            <p>Department of Data Science</p>
+            <p>National University of Computer and Emerging Sciences, Islamabad, Pakistan</p>
+            
+            <div class="social-links">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+            
+            <div class="contact-info">
+                <p>Email: <a href="mailto:project.eda@example.com">project.eda@example.com</a></p>
+            </div>
+            
+            <p>© 2025 EDA Project Team. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Add smooth scrolling for all links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    // Offset for mobile navigation
+                    const offset = window.innerWidth <= 768 ? 20 : 0;
+                    
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Optional: Add active state to mobile navigation
+        const sections = document.querySelectorAll('.section');
+        const navLinks = document.querySelectorAll('.mobile-nav-link');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
