@@ -29,7 +29,73 @@
             line-height: 1.6;
             color: #333;
             background-color: #f5f0fa;
-            overflow-x: hidden; /* Prevent horizontal scrolling on mobile */
+            overflow-x: hidden;
+        }
+        
+        /* Fullscreen image modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            overflow: auto;
+            animation: fadeIn 0.3s;
+        }
+        
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+        
+        .modal-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+        }
+        
+        .modal-img {
+            max-width: 90%;
+            max-height: 80vh;
+            object-fit: contain;
+        }
+        
+        .modal-caption {
+            color: white;
+            text-align: center;
+            padding: 15px;
+            max-width: 80%;
+            margin-top: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 5px;
+        }
+        
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        
+        .close:hover {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        /* Gallery item cursor pointer */
+        .gallery-item {
+            cursor: pointer;
         }
         
         header {
@@ -128,6 +194,7 @@
             margin-bottom: 1rem;
             border: 3px solid var(--accent);
             box-shadow: 0 0 15px rgba(156, 39, 176, 0.3);
+            cursor: pointer;
         }
         
         .lab-info {
@@ -144,6 +211,7 @@
         .lab-logo {
             max-width: 150px;
             height: auto;
+            cursor: pointer;
         }
         
         .lab-details {
@@ -525,7 +593,7 @@
             }
             
             body {
-                padding-bottom: 60px; /* Add space for fixed mobile nav */
+                padding-bottom: 60px;
             }
             
             .gallery-item {
@@ -541,7 +609,31 @@
             }
             
             footer {
-                padding-bottom: 70px; /* Extra space for mobile nav */
+                padding-bottom: 70px;
+            }
+            
+            /* Always show gallery overlay on mobile */
+            .gallery-overlay {
+                transform: translateY(0);
+                background-color: rgba(0, 0, 0, 0.7);
+            }
+            
+            /* Adjust modal for mobile */
+            .modal-img {
+                max-width: 95%;
+                max-height: 70vh;
+            }
+            
+            .modal-caption {
+                max-width: 95%;
+                font-size: 0.9rem;
+                padding: 10px;
+            }
+            
+            .close {
+                top: 10px;
+                right: 20px;
+                font-size: 30px;
             }
         }
         
@@ -601,16 +693,19 @@
                 font-size: 0.75rem;
                 margin-bottom: 0;
             }
-            
-            /* Always show gallery overlay on mobile for better UX */
-            .gallery-item .gallery-overlay {
-                transform: translateY(0);
-                opacity: 0.9;
-            }
         }
     </style>
 </head>
 <body>
+    <!-- Fullscreen Image Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <div class="modal-content">
+            <img id="modalImage" class="modal-img" src="" alt="">
+            <div id="modalCaption" class="modal-caption"></div>
+        </div>
+    </div>
+
     <header>
         <div class="header-content">
             <img src="images/kdd.png" alt="KDD Lab Logo" class="kdd-logo">
@@ -1001,6 +1096,55 @@
                     link.classList.add('active');
                 }
             });
+        });
+        
+        // Image modal functionality
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const modalCaption = document.getElementById('modalCaption');
+        const closeBtn = document.getElementsByClassName('close')[0];
+        
+        // Get all clickable images
+        const clickableImages = document.querySelectorAll('.gallery-img, .member-img, .lab-logo, .logo, .kdd-logo');
+        
+        // Add click event to each image
+        clickableImages.forEach(img => {
+            img.addEventListener('click', function() {
+                modal.style.display = 'block';
+                modalImg.src = this.src;
+                
+                // Set caption if available
+                if (this.alt) {
+                    modalCaption.innerHTML = this.alt;
+                } else {
+                    // Try to get caption from overlay if it's a gallery item
+                    const overlay = this.parentElement.querySelector('.gallery-overlay');
+                    if (overlay) {
+                        modalCaption.innerHTML = overlay.innerHTML;
+                    } else {
+                        modalCaption.innerHTML = '';
+                    }
+                }
+            });
+        });
+        
+        // Close modal when clicking the X
+        closeBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+        
+        // Close modal when clicking outside the image
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+        
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.style.display === 'block') {
+                modal.style.display = 'none';
+            }
         });
     </script>
 </body>
