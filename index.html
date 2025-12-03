@@ -3,7 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enhanced Driver Assist (EDA) - FYP-063-D-EDA</title>
+    <title>Enhanced Driver Assist (EDA) - AI-Powered Driver Assistance System | FYP-063-D-EDA</title>
+    
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Enhanced Driver Assist (EDA) - AI-Powered Driver Assistance System">
+    <meta name="description" content="EDA is an AI-powered driver assistance system that improves highway safety through modules like driver attention monitoring, lane departure warning, and driving pattern analysis. Winner of 4 competitions in Pakistan's top tech events.">
+    <meta name="keywords" content="Enhanced Driver Assist, EDA, AI driver assistance, ADAS, road safety, driver fatigue detection, lane departure warning, computer vision, IoT, edge computing, Raspberry Pi, Coral TPU, OBD-II, FAST-NUCES, KDD Lab, Pakistan tech competitions">
+    <meta name="author" content="Manahil Kamran, Ali Arfa">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://eda-project.com/">
+    <meta property="og:title" content="Enhanced Driver Assist (EDA) - AI-Powered Driver Assistance System">
+    <meta property="og:description" content="EDA is an AI-powered driver assistance system that improves highway safety. Winner of 4 competitions including COMPEC 2025, ExcITe Cup 2025, NASCON 25, and SOFTEC 2025.">
+    <meta property="og:image" content="https://eda-project.com/images/logo.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="EDA Project">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://eda-project.com/">
+    <meta name="twitter:title" content="Enhanced Driver Assist (EDA) - AI-Powered Driver Assistance System">
+    <meta name="twitter:description" content="EDA is an AI-powered driver assistance system that improves highway safety. Winner of 4 competitions in Pakistan's top tech events.">
+    <meta name="twitter:image" content="https://eda-project.com/images/logo.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://eda-project.com/">
+    
+    <!-- Sitemap -->
+    <link rel="sitemap" type="application/xml" href="https://eda-project.com/sitemap.xml">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/logo.png">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -104,6 +140,157 @@
             padding: 1rem 0;
             position: relative;
             width: 100%;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+        
+        header.sticky {
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 0.5rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            height: auto;
+        }
+        
+        header.sticky .header-content {
+            padding: 0.5rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: row;
+            text-align: left;
+        }
+        
+        header.sticky .logo {
+            max-width: 80px;
+            margin-bottom: 0;
+            margin-right: 1.5rem;
+            margin-left: 0;
+            height: auto;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        header.sticky .logo:hover {
+            transform: scale(1.05);
+        }
+        
+        header.sticky h1 {
+            display: none;
+        }
+        
+        header.sticky .subtitle {
+            display: none;
+        }
+        
+        header.sticky .kdd-logo {
+            display: none;
+        }
+        
+        header.sticky .sticky-nav {
+            display: flex;
+        }
+        
+        /* Sticky Navigation (appears when header is sticky) */
+        .sticky-nav {
+            display: none;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .sticky-nav-links {
+            display: flex;
+            gap: 1rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            flex-wrap: wrap;
+        }
+        
+        .sticky-nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        
+        .sticky-nav-links a:hover,
+        .sticky-nav-links a.active {
+            color: var(--accent);
+            background-color: rgba(156, 39, 176, 0.2);
+        }
+        
+        /* Desktop Navigation */
+        .desktop-nav {
+            display: none;
+            background-color: rgba(33, 0, 73, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 998;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .desktop-nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0.75rem 2rem;
+        }
+        
+        .desktop-nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .desktop-nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .desktop-nav-links a:hover,
+        .desktop-nav-links a.active {
+            color: var(--accent);
+            background-color: rgba(156, 39, 176, 0.2);
+        }
+        
+        .desktop-nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        .desktop-nav-links a:hover::after,
+        .desktop-nav-links a.active::after {
+            width: 80%;
+        }
+        
+        @media screen and (min-width: 769px) {
+            .desktop-nav {
+                display: block;
+            }
         }
         
         .header-content {
@@ -157,6 +344,14 @@
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             width: 100%;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .section.fade-in {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         h2 {
@@ -195,6 +390,12 @@
             border: 3px solid var(--accent);
             box-shadow: 0 0 15px rgba(156, 39, 176, 0.3);
             cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .member-img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px rgba(156, 39, 176, 0.5);
         }
         
         .lab-info {
@@ -239,8 +440,9 @@
         }
         
         .module:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 12px 24px rgba(160, 5, 255, 0.2);
+            border-color: var(--accent);
         }
         
         .module-icon {
@@ -288,7 +490,11 @@
         }
         
         .gallery-item:hover .gallery-img {
-            transform: scale(1.05);
+            transform: scale(1.1);
+        }
+        
+        .gallery-item:hover {
+            box-shadow: 0 8px 20px rgba(160, 5, 255, 0.3);
         }
         
         .gallery-overlay {
@@ -456,18 +662,27 @@
         
         .btn {
             display: inline-block;
-            background-color: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--accent));
             color: white;
-            padding: 0.5rem 1.5rem;
-            border-radius: 4px;
+            padding: 0.75rem 2rem;
+            border-radius: 25px;
             text-decoration: none;
-            transition: background-color 0.3s;
+            transition: all 0.3s ease;
             font-weight: bold;
             margin-top: 1rem;
+            box-shadow: 0 4px 15px rgba(160, 5, 255, 0.3);
+            border: none;
+            cursor: pointer;
         }
         
         .btn:hover {
-            background-color: #8e24aa;
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(160, 5, 255, 0.4);
+        }
+        
+        .btn:active {
+            transform: translateY(0) scale(1);
         }
         
         /* Mobile Navigation - Sticky on scroll */
@@ -526,6 +741,40 @@
         }
         
         @media screen and (max-width: 768px) {
+            /* Prevent sticky header on mobile to avoid layout issues */
+            header.sticky {
+                position: relative;
+                box-shadow: none;
+            }
+            
+            header.sticky .header-content {
+                padding: 1rem;
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            header.sticky .logo {
+                max-width: 200px;
+                margin-bottom: 1rem;
+                margin-right: 0;
+            }
+            
+            header.sticky h1 {
+                font-size: 1.8rem;
+                margin-bottom: 1rem;
+                display: block;
+            }
+            
+            header.sticky .subtitle {
+                font-size: 0.9rem;
+                margin-bottom: 1rem;
+                display: block;
+            }
+            
+            header.sticky .sticky-nav {
+                display: none;
+            }
+            
             .timeline::after {
                 left: 31px;
             }
@@ -594,6 +843,7 @@
             
             body {
                 padding-bottom: 60px;
+                padding-top: 0 !important;
             }
             
             .gallery-item {
@@ -694,7 +944,340 @@
                 margin-bottom: 0;
             }
         }
+        
+        /* Wins Section Styles - Horizontal Slideshow */
+        .wins-hero {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 1.5rem 1rem;
+            background: linear-gradient(135deg, rgba(160, 5, 255, 0.1), rgba(156, 39, 176, 0.1));
+            border-radius: 10px;
+        }
+        
+        .wins-hero h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        
+        .wins-hero p {
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 800px;
+            margin: 1rem auto;
+        }
+        
+        .wins-slideshow-container {
+            position: relative;
+            max-width: 100%;
+            margin: 2rem auto;
+            overflow: hidden;
+            border-radius: 12px;
+            padding: 0 1rem;
+        }
+        
+        .wins-slideshow {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            will-change: transform;
+        }
+        
+        .win-slide {
+            min-width: calc(100% - 1rem);
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 0 0.5rem;
+        }
+        
+        .win-slide-image {
+            width: 100%;
+            max-width: 600px;
+            height: 400px;
+            object-fit: contain;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            background-color: #f9f9f9;
+        }
+        
+        .win-slide-content {
+            text-align: center;
+            max-width: 700px;
+        }
+        
+        .win-slide-content h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .win-slide-content .win-location {
+            color: var(--secondary);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+        
+        .wins-slideshow-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .wins-slide-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(160, 5, 255, 0.3);
+        }
+        
+        .wins-slide-btn:hover {
+            background-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(160, 5, 255, 0.4);
+        }
+        
+        .wins-slide-btn:active {
+            transform: translateY(0);
+        }
+        
+        
+        .wins-slide-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .wins-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ccc;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .wins-indicator.active {
+            background-color: var(--primary);
+            width: 30px;
+            border-radius: 6px;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .wins-slideshow-container {
+                padding: 0 1.5rem;
+                margin: 1.5rem auto;
+            }
+            
+            .wins-hero h2 {
+                font-size: 2rem;
+            }
+            
+            .wins-hero p {
+                font-size: 1rem;
+            }
+            
+            .win-slide {
+                min-width: calc(100% - 1.5rem);
+                padding: 1.5rem 1rem;
+                margin: 0 0.75rem;
+            }
+            
+            .win-slide-image {
+                height: 300px;
+            }
+            
+            .win-slide-content h3 {
+                font-size: 1.3rem;
+            }
+            
+            .wins-slide-btn {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            .wins-slideshow-container {
+                padding: 0 1rem;
+                margin: 1rem auto;
+            }
+            
+            .wins-hero {
+                padding: 1rem;
+            }
+            
+            .wins-hero h2 {
+                font-size: 1.75rem;
+            }
+            
+            .win-slide {
+                min-width: calc(100% - 1rem);
+                padding: 1rem 0.75rem;
+                margin: 0 0.5rem;
+            }
+            
+            .win-slide-image {
+                height: 250px;
+            }
+            
+            .win-slide-content h3 {
+                font-size: 1.1rem;
+            }
+            
+            .wins-slide-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.85rem;
+            }
+        }
     </style>
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Project",
+        "name": "Enhanced Driver Assist (EDA)",
+        "alternateName": "EDA",
+        "description": "An AI-powered driver assistance system that improves road safety by combining various advanced driver assistance features including driver attention monitoring, lane departure warning, and driving pattern analysis.",
+        "url": "https://eda-project.com/",
+        "image": "https://eda-project.com/images/logo.png",
+        "creator": [
+            {
+                "@type": "Person",
+                "name": "Manahil Kamran",
+                "identifier": "21I-2668"
+            },
+            {
+                "@type": "Person",
+                "name": "Ali Arfa",
+                "identifier": "21I-2669"
+            }
+        ],
+        "supervisor": [
+            {
+                "@type": "Person",
+                "name": "Dr. Faisal Cheema",
+                "jobTitle": "Project Supervisor"
+            },
+            {
+                "@type": "Person",
+                "name": "Ms. Hira Mastoor",
+                "jobTitle": "Project Co-Supervisor"
+            }
+        ],
+        "funder": {
+            "@type": "Organization",
+            "name": "National University of Computer and Emerging Sciences",
+            "alternateName": "FAST-NUCES",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Islamabad",
+                "addressCountry": "PK"
+            }
+        },
+        "keywords": "AI, driver assistance, ADAS, road safety, computer vision, IoT, edge computing, Raspberry Pi, Coral TPU, OBD-II",
+        "award": [
+            "1st Position - COMPEC 2025 (IoT & Digital Technologies Category)",
+            "1st Position - ExcITe Cup 2025 Project Exhibition",
+            "2nd Position - NumAIsh (NASCON 25)",
+            "2nd Position - SOFTEC AI Product Innovation Competition"
+        ]
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Knowledge Discovery and Data Science (KDD) Lab",
+        "alternateName": "KDD Lab",
+        "parentOrganization": {
+            "@type": "Organization",
+            "name": "National University of Computer and Emerging Sciences",
+            "alternateName": "FAST-NUCES",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Islamabad",
+                "addressCountry": "PK"
+            }
+        },
+        "url": "https://eda-project.com/",
+        "logo": "https://eda-project.com/images/kdd.png",
+        "description": "A research facility focused on data science, machine learning, and artificial intelligence applications."
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Enhanced Driver Assist (EDA)",
+        "url": "https://eda-project.com/",
+        "description": "AI-powered driver assistance system for improved highway safety",
+        "inLanguage": "en-US",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://eda-project.com/?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://eda-project.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "About",
+                "item": "https://eda-project.com/#about"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Team",
+                "item": "https://eda-project.com/#team"
+            },
+            {
+                "@type": "ListItem",
+                "position": 4,
+                "name": "Modules",
+                "item": "https://eda-project.com/#modules"
+            },
+            {
+                "@type": "ListItem",
+                "position": 5,
+                "name": "Wins",
+                "item": "https://eda-project.com/#wins"
+            }
+        ]
+    }
+    </script>
 </head>
 <body>
     <!-- Fullscreen Image Modal -->
@@ -713,8 +1296,35 @@
             <h1>Enhanced Driver Assist (EDA)</h1>
             <p class="subtitle">FYP-063-D-EDA | National University of Computer and Emerging Sciences</p>
             <p class="subtitle">Making Roads Safer with AI-Powered Driver Assistance</p>
+            <nav class="sticky-nav">
+                <ul class="sticky-nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#modules">Modules</a></li>
+                    <li><a href="#wins">Wins</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#demos">Demos</a></li>
+                    <li><a href="#timeline">Timeline</a></li>
+                    <li><a href="#conclusion">Impact</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
+    
+    <nav class="desktop-nav">
+        <div class="desktop-nav-content">
+            <ul class="desktop-nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#modules">Modules</a></li>
+                <li><a href="#wins">Wins</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#demos">Demos</a></li>
+                <li><a href="#timeline">Timeline</a></li>
+                <li><a href="#conclusion">Impact</a></li>
+            </ul>
+        </div>
+    </nav>
     
     <div class="container">
         <section class="section" id="about">
@@ -742,13 +1352,13 @@
             <h2>Our Team</h2>
             <div class="team-members">
                 <div class="team-member">
-                    <img src="images/manahil.jpg" alt="Manahil Kamran" class="member-img">
+                    <img src="images/manahil.jpg" alt="Manahil Kamran" class="member-img" loading="lazy">
                     <h3>Manahil Kamran</h3>
                     <p>21I-2668</p>
                     <p><strong>Responsibilities:</strong> Driver Attention Assist, Lane Departure Warning, Driving Pattern Monitoring</p>
                 </div>
                 <div class="team-member">
-                    <img src="images/ali.jpg" alt="Ali Arfa" class="member-img">
+                    <img src="images/ali.jpg" alt="Ali Arfa" class="member-img" loading="lazy">
                     <h3>Ali Arfa</h3>
                     <p>21I-2669</p>
                     <p><strong>Responsibilities:</strong> Hardware Implementation, Voice Assistant, OBD-II Integration</p>
@@ -766,7 +1376,7 @@
             </div>
             
             <div class="lab-info">
-                <img src="images/kdd.png" alt="KDD Lab Logo" class="lab-logo">
+                <img src="images/kdd.png" alt="KDD Lab Logo" class="lab-logo" loading="lazy">
                 <div class="lab-details">
                     <h3>Knowledge Discovery and Data Science (KDD) Lab</h3>
                     <p>This project was developed at the KDD Lab, National University of Computer and Emerging Sciences (FAST-NUCES), Islamabad. The KDD Lab is a research facility focused on data science, machine learning, and artificial intelligence applications.</p>
@@ -845,47 +1455,111 @@
             </div>
         </section>
         
+        <section class="section" id="wins">
+            <div class="wins-hero">
+                <h2>Showcasing Events</h2>
+                <p>Over the past two months, we've had the opportunity to represent our Final Year Project — EDA (Enhanced Driver Assist) — at some of Pakistan's leading tech competitions. Our AI-powered driver assistance system has been recognized for its real-world applicability and innovation in improving highway safety through advanced driver assistance features.</p>
+                <p>These competitions have provided valuable validation and feedback, helping us refine our solution and demonstrate its potential impact on road safety.</p>
+            </div>
+            
+            <div class="wins-slideshow-container">
+                <div class="wins-slideshow" id="winsSlideshow">
+                    <div class="win-slide">
+                        <img src="images/w-1.jpg" alt="COMPEC 2025 Trophy - 1st Position" class="win-slide-image" loading="lazy">
+                        <div class="win-slide-content">
+                            <h3>1st Position – COMPEC 2025</h3>
+                            <p class="win-location">📍 NUST CEME, Islamabad | IoT & Digital Technologies Category</p>
+                            <p>EDA stood out for its real-world applicability and innovation at this national-level project competition. Competing against top-tier student projects, we were honored to secure 1st Place in the IoT & Digital Tech category.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="win-slide">
+                        <img src="images/w-2.jpg" alt="SOFTEC 2025 Trophy - 2nd Position" class="win-slide-image" loading="lazy">
+                        <div class="win-slide-content">
+                            <h3>2nd Position – SOFTEC AI Product Innovation Competition</h3>
+                            <p class="win-location">📍 FAST NUCES, Lahore</p>
+                            <p>This was an intense 7-day sprint, building a functional AI-based product end-to-end. EDA was recognized as one of the top AI innovations, landing us the Runner-up position in a field focused on creativity, impact, and product viability.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="win-slide">
+                        <img src="images/w-3.jpg" alt="NumAIsh (NASCON 25) Trophy - 2nd Position" class="win-slide-image" loading="lazy">
+                        <div class="win-slide-content">
+                            <h3>2nd Position – NumAIsh (NASCON 25)</h3>
+                            <p class="win-location">📍 FAST NUCES, Islamabad</p>
+                            <p>At NASCON's premier project exhibition judged by experts from VisionRD, Devsinc, and others, EDA earned the Runner-up position — a testament to our technical execution and pitch on highway safety innovation.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="win-slide">
+                        <img src="images/w-4.jpg" alt="ExcITe Cup 2025 Trophy - 1st Position" class="win-slide-image" loading="lazy">
+                        <div class="win-slide-content">
+                            <h3>1st Position – ExcITe Cup 2025 Project Exhibition</h3>
+                            <p class="win-location">📍 CUST Islamabad</p>
+                            <p>Among innovative tech solutions from across the country, EDA captured attention for its relevance to real-world road safety challenges — earning us 1st Place at CUST's national exhibition.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="win-slide">
+                        <img src="images/w-5.jpg" alt="All EDA Competition Trophies Together" class="win-slide-image" loading="lazy">
+                        <div class="win-slide-content">
+                            <h3>EDA Recognized Across Pakistan's Top Tech Competitions</h3>
+                            <p>We're grateful to each organizing body, panel of judges, and fellow innovators for the valuable feedback and support. These competitions helped us validate our idea and pushed us to deliver better, smarter, and safer solutions for real-world mobility challenges.</p>
+                            <p><strong>EDA isn't just a project. It's our vision for safer roads.</strong></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="wins-slideshow-controls">
+                    <button class="wins-slide-btn" id="prevBtn" aria-label="Previous slide">← Previous</button>
+                    <button class="wins-slide-btn" id="nextBtn" aria-label="Next slide">Next →</button>
+                </div>
+                
+                <div class="wins-slide-indicators" id="indicators"></div>
+            </div>
+        </section>
+        
         <section class="section" id="gallery">
             <h2>360° Device Gallery</h2>
             <p>Explore our EDA device from every angle with these 360° view photographs:</p>
             <div class="gallery">
                 <div class="gallery-item">
-                    <img src="images/1.jpg" alt="EDA Device Front View" class="gallery-img">
+                    <img src="images/1.jpg" alt="EDA Device Front View" class="gallery-img" loading="lazy">
                     <div class="gallery-overlay">
                         <h4>Front View</h4>
                         <p>The front-facing camera system for road monitoring</p>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="images/3.jpg" alt="EDA Device Side View" class="gallery-img">
+                    <img src="images/3.jpg" alt="EDA Device Side View" class="gallery-img" loading="lazy">
                     <div class="gallery-overlay">
                         <h4>Side View</h4>
                         <p>Compact design for easy installation</p>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="images/4.jpg" alt="EDA Device Back View" class="gallery-img">
+                    <img src="images/4.jpg" alt="EDA Device Back View" class="gallery-img" loading="lazy">
                     <div class="gallery-overlay">
                         <h4>Back View</h4>
                         <p>The driver-facing camera system</p>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="images/6.jpg" alt="EDA Device Side view" class="gallery-img">
+                    <img src="images/6.jpg" alt="EDA Device Side view" class="gallery-img" loading="lazy">
                     <div class="gallery-overlay">
                         <h4>Side Ports</h4>
                         <p>Raspberry Pi and Coral TPU hardware</p>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="images/dash.jpg" alt="EDA Device Dashboard Installation" class="gallery-img">
+                    <img src="images/dash.jpg" alt="EDA Device Dashboard Installation" class="gallery-img" loading="lazy">
                     <div class="gallery-overlay">
                         <h4>Dashboard Installation</h4>
                         <p>The EDA system installed in a vehicle</p>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="images/obd.jpg" alt="EDA Device OBD-II Connection" class="gallery-img">
+                    <img src="images/obd.jpg" alt="EDA Device OBD-II Connection" class="gallery-img" loading="lazy">
                     <div class="gallery-overlay">
                         <h4>OBD-II Connection</h4>
                         <p>Vehicle data integration through OBD-II</p>
@@ -1018,6 +1692,10 @@
                 <i class="fas fa-cubes"></i>
                 Modules
             </a>
+            <a href="#wins" class="mobile-nav-link">
+                <i class="fas fa-trophy"></i>
+                Wins
+            </a>
             <a href="#gallery" class="mobile-nav-link">
                 <i class="fas fa-images"></i>
                 Gallery
@@ -1074,9 +1752,9 @@
             });
         });
         
-        // Optional: Add active state to mobile navigation
+        // Add active state to navigation (mobile, desktop, and sticky)
         const sections = document.querySelectorAll('.section');
-        const navLinks = document.querySelectorAll('.mobile-nav-link');
+        const navLinks = document.querySelectorAll('.mobile-nav-link, .desktop-nav-links a, .sticky-nav-links a');
         
         window.addEventListener('scroll', () => {
             let current = '';
@@ -1084,15 +1762,17 @@
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
                 const sectionHeight = section.clientHeight;
+                const offset = window.innerWidth <= 768 ? 200 : 300;
                 
-                if (pageYOffset >= (sectionTop - 200)) {
+                if (pageYOffset >= (sectionTop - offset)) {
                     current = section.getAttribute('id');
                 }
             });
             
             navLinks.forEach(link => {
                 link.classList.remove('active');
-                if (link.getAttribute('href').substring(1) === current) {
+                const href = link.getAttribute('href');
+                if (href && href.substring(1) === current) {
                     link.classList.add('active');
                 }
             });
@@ -1105,7 +1785,7 @@
         const closeBtn = document.getElementsByClassName('close')[0];
         
         // Get all clickable images
-        const clickableImages = document.querySelectorAll('.gallery-img, .member-img, .lab-logo, .logo, .kdd-logo');
+        const clickableImages = document.querySelectorAll('.gallery-img, .member-img, .lab-logo, .logo, .kdd-logo, .win-slide-image');
         
         // Add click event to each image
         clickableImages.forEach(img => {
@@ -1145,6 +1825,167 @@
             if (e.key === 'Escape' && modal.style.display === 'block') {
                 modal.style.display = 'none';
             }
+        });
+        
+        // Sticky header on scroll
+        const header = document.querySelector('header');
+        const headerHeight = header.offsetHeight;
+        const logo = document.querySelector('.logo');
+        
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > headerHeight) {
+                header.classList.add('sticky');
+                // Only add padding on desktop to avoid mobile issues
+                if (window.innerWidth > 768) {
+                    document.body.style.paddingTop = header.offsetHeight + 'px';
+                }
+            } else {
+                header.classList.remove('sticky');
+                document.body.style.paddingTop = '0';
+            }
+        });
+        
+        // Make logo clickable to scroll to top when sticky
+        logo.addEventListener('click', function() {
+            if (header.classList.contains('sticky')) {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }
+        });
+        
+        // Wins Slideshow functionality
+        const winsSlideshow = document.getElementById('winsSlideshow');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const indicatorsContainer = document.getElementById('indicators');
+        let currentSlide = 0;
+        const totalSlides = winsSlideshow.children.length;
+        
+        // Create indicators
+        for (let i = 0; i < totalSlides; i++) {
+            const indicator = document.createElement('div');
+            indicator.className = 'wins-indicator' + (i === 0 ? ' active' : '');
+            indicator.setAttribute('data-slide', i);
+            indicator.addEventListener('click', () => goToSlide(i));
+            indicatorsContainer.appendChild(indicator);
+        }
+        
+        function updateSlideshow() {
+            // Calculate transform - each slide takes 100% of container width
+            // The margins are handled by the slide's min-width calculation
+            const slideWidth = 100; // percentage per slide
+            winsSlideshow.style.transform = `translateX(-${currentSlide * slideWidth}%)`;
+            
+            // Update indicators
+            const indicators = indicatorsContainer.querySelectorAll('.wins-indicator');
+            indicators.forEach((ind, index) => {
+                ind.classList.toggle('active', index === currentSlide);
+            });
+        }
+        
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlideshow();
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides; // Loop to 0 when at end
+            updateSlideshow();
+        }
+        
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides; // Loop to last slide when at beginning
+            updateSlideshow();
+        }
+        
+        prevBtn.addEventListener('click', prevSlide);
+        nextBtn.addEventListener('click', nextSlide);
+        
+        // Auto-play slideshow with infinite loop
+        let autoPlayInterval;
+        function startAutoPlay() {
+            autoPlayInterval = setInterval(() => {
+                nextSlide(); // This now loops automatically
+            }, 5000); // Change slide every 5 seconds
+        }
+        
+        function stopAutoPlay() {
+            clearInterval(autoPlayInterval);
+        }
+        
+        // Start auto-play on load
+        startAutoPlay();
+        
+        // Pause on hover
+        const slideshowContainer = document.querySelector('.wins-slideshow-container');
+        slideshowContainer.addEventListener('mouseenter', stopAutoPlay);
+        slideshowContainer.addEventListener('mouseleave', startAutoPlay);
+        
+        // Touch/swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        winsSlideshow.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+        
+        winsSlideshow.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+        
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) {
+                nextSlide(); // Swipe left - next slide (loops)
+            }
+            if (touchEndX > touchStartX + 50) {
+                prevSlide(); // Swipe right - previous slide (loops)
+            }
+        }
+        
+        // Initialize
+        updateSlideshow();
+        
+        // Scroll-triggered fade-in animations using Intersection Observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all sections
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+        
+        // Also observe win cards and modules for staggered animation
+        const cardObserver = new IntersectionObserver(function(entries) {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100);
+                    cardObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.win-card, .module').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease-out, transform 0.5s ease-out';
+            cardObserver.observe(card);
         });
     </script>
 </body>
